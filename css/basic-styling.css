@@ -75,6 +75,10 @@ header li:hover {
     text-decoration-color: white;
 }
 
+#hamburgerIcon {
+    color: white;
+}
+
 .desktop-nav-logged-in,
 .desktop-nav-logged-out {
     display: none;
