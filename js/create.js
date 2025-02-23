@@ -3,9 +3,9 @@ let isSubmitting = false;
 //Check if user is logged in
 const token = localStorage.getItem("jwt");
 
-if (!token && window.location.pathname.includes("/post/create.html")) {
+if (!token && window.location.pathname.includes(`/${repoName}/post/create.html`)) {
     alert("You must be logged in to access this page.");
-    window.location.href = "/account/login.html";
+    window.location.href = `/${repoName}/account/login.html`;
 }
 
 //Validate image URL format
@@ -80,7 +80,7 @@ async function createPost(title, body, publishDate, mediaUrl = "") {
 
         const data = await response.json();
         alert(postId ? "Post updated successfully!" : "Post created successfully!");
-        window.location.href = "/index.html";
+        window.location.href = `/${repoName}/index.html`;
     } catch (error) {
         console.error("There was a problem:", error);
         alert(error.message || "Failed to save post. Check console for details.");
@@ -88,7 +88,7 @@ async function createPost(title, body, publishDate, mediaUrl = "") {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    if (window.location.pathname.includes("/post/create.html")) {
+    if (window.location.pathname.includes(`/${repoName}/post/create.html`)) {
         const blogImageInput = document.getElementById("blogImage");
         const previewImage = document.getElementById("previewImage");
 
@@ -112,7 +112,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 //Checks if this is the create page
 document.addEventListener("DOMContentLoaded", () => {
-    if (window.location.pathname.includes("/post/create.html")) {
+    if (window.location.pathname.includes(`/${repoName}/post/create.html`)) {
         const blogImageInput = document.getElementById("blogImage");
         const previewImage = document.getElementById("previewImage");
 
@@ -136,7 +136,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Add event listener for confirm button
 document.addEventListener("DOMContentLoaded", () => {
-    if (window.location.pathname.includes("/post/create.html")) {
+    if (window.location.pathname.includes(`/${repoName}/post/create.html`)) {
         const confirmBtn = document.querySelector(".confirm-btn");
 
         if (confirmBtn) {

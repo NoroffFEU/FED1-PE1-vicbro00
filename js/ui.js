@@ -9,6 +9,8 @@ document.addEventListener("DOMContentLoaded", () => {
     logUserSession();
 });
 
+const repoName = window.location.pathname.split('/')[1];
+
 //Display what user is logged in
 function logUserSession() {
     const token = localStorage.getItem("jwt");
