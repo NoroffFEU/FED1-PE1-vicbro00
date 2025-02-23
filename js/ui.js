@@ -193,7 +193,7 @@ function signOut() {
         
         if (loadingSpinner) loadingSpinner.style.display = "none";
 
-        window.location.href = "/index.html";  
+        window.location.href = "index.html";  
     }, 1000);
 }
 

@@ -1,15 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     const message = document.getElementById("message");
 
-    function getBaseURL() {
-        if (window.location.pathname.includes('/FED1-PE1-vicbro00/')) {
-            return '/FED1-PE1-vicbro00/';
-        }
-        return '/';
-    }
-
-    const baseURL = getBaseURL();
-
     //Check if this is the register page
     if (window.location.pathname.includes("/account/register.html")) {
         document.getElementById("signUpBtn").addEventListener("click", (event) => {
