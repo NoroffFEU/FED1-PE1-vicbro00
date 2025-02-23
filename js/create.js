@@ -1,12 +1,66 @@
 let isSubmitting = false;
 
-//Check if user is logged in
-const token = localStorage.getItem("jwt");
+document.addEventListener("DOMContentLoaded", () => {
+    //Check if on the create page
+    if (window.location.pathname.includes("/FED1-PE1-vicbro00/post/create.html")) {
+        const token = localStorage.getItem("jwt");
+        const userEmail = localStorage.getItem("email");
 
-if (!token && window.location.pathname.includes("/FED1-PE1-vicbro00/post/create.html")) {
-    alert("You must be logged in to access this page.");
-    window.location.href = "/FED1-PE1-vicbro00/account/login.html";
-}
+        if (!token) {
+            alert("You must be logged in to access this page.");
+            window.location.href = "/FED1-PE1-vicbro00/account/login.html";
+        }
+
+        //Display the email on the create page
+        const emailDisplayElement = document.getElementById("userEmailDisplay");
+
+        if (emailDisplayElement && userEmail) {
+            emailDisplayElement.textContent = userEmail;
+        } else {
+            console.error("Element for displaying user email not found or email not set in localStorage.");
+        }
+
+        const blogImageInput = document.getElementById("blogImage");
+        const previewImage = document.getElementById("previewImage");
+
+        if (blogImageInput && previewImage) {
+            blogImageInput.addEventListener("input", function () {
+                const imageUrl = this.value;
+
+                if (imageUrl) {
+                    previewImage.src = imageUrl;
+                    previewImage.style.display = "block";
+                } else {
+                    previewImage.style.display = "none";
+                }
+            });
+        } else {
+            console.error("blogImage or previewImage element not found in the DOM.");
+        }
+
+        const confirmBtn = document.querySelector(".confirm-btn");
+
+        if (confirmBtn) {
+            confirmBtn.addEventListener("click", async (event) => {
+                event.preventDefault();
+
+                const title = document.getElementById("blogTitle").value;
+                const body = document.getElementById("blogContent").value;
+                const publishDate = document.getElementById("publishDate").value;
+                const mediaUrl = document.getElementById("blogImage").value;
+
+                if (!title || !body || !publishDate) {
+                    alert("Please fill in all required fields.");
+                    return;
+                }
+
+                await createPost(title, body, publishDate, mediaUrl);
+            });
+        } else {
+            console.error("Confirm button not found in the DOM.");
+        }
+    }
+});
 
 //Validate image URL format
 function isValidImageUrl(url) {
@@ -86,80 +140,3 @@ async function createPost(title, body, publishDate, mediaUrl = "") {
         alert(error.message || "Failed to save post. Check console for details.");
     }
 }
-
-document.addEventListener("DOMContentLoaded", () => {
-    if (window.location.pathname.includes("/FED1-PE1-vicbro00/post/create.html")) {
-        const blogImageInput = document.getElementById("blogImage");
-        const previewImage = document.getElementById("previewImage");
-
-        if (blogImageInput && previewImage) {
-            blogImageInput.addEventListener("input", function () {
-                const imageUrl = this.value;
-
-                //Preview image
-                if (imageUrl) {
-                    previewImage.src = imageUrl;
-                    previewImage.style.display = "block";
-                } else {
-                    previewImage.style.display = "none";
-                }
-            });
-        } else {
-            console.error("blogImage or previewImage element not found in the DOM.");
-        }
-    }
-});
-
-//Checks if this is the create page
-document.addEventListener("DOMContentLoaded", () => {
-    if (window.location.pathname.includes("/FED1-PE1-vicbro00/post/create.html")) {
-        const blogImageInput = document.getElementById("blogImage");
-        const previewImage = document.getElementById("previewImage");
-
-        if (blogImageInput && previewImage) {
-            blogImageInput.addEventListener("input", function () {
-                const imageUrl = this.value;
-
-                //Preview image
-                if (imageUrl) {
-                    previewImage.src = imageUrl;
-                    previewImage.style.display = "block";
-                } else {
-                    previewImage.style.display = "none";
-                }
-            });
-        } else {
-            console.error("blogImage or previewImage element not found in the DOM.");
-        }
-    }
-});
-
-// Add event listener for confirm button
-document.addEventListener("DOMContentLoaded", () => {
-    if (window.location.pathname.includes("/FED1-PE1-vicbro00/post/create.html")) {
-        const confirmBtn = document.querySelector(".confirm-btn");
-
-        if (confirmBtn) {
-            confirmBtn.addEventListener("click", async (event) => {
-                event.preventDefault();
-
-                // Collect form data
-                const title = document.getElementById("blogTitle").value;
-                const body = document.getElementById("blogContent").value;
-                const publishDate = document.getElementById("publishDate").value;
-                const mediaUrl = document.getElementById("blogImage").value;
-
-                // Validate required fields
-                if (!title || !body || !publishDate) {
-                    alert("Please fill in all required fields.");
-                    return;
-                }
-
-                // Call the createPost function
-                await createPost(title, body, publishDate, mediaUrl);
-            });
-        } else {
-            console.error("Confirm button not found in the DOM.");
-        }
-    }
-});
