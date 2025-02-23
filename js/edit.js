@@ -5,17 +5,12 @@ document.addEventListener("DOMContentLoaded", () => {
         redirectIfNotLoggedIn();
 
         const userEmail = localStorage.getItem("email");
-        document.getElementById("email").textContent = userEmail || "Not signed in";
-    }
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-    const userEmail = localStorage.getItem("email");
-    if (userEmail) {
-        document.getElementById("email").textContent = userEmail;
-    } else {
-        console.log("Email not found in localStorage");
-        document.getElementById("email").textContent = "Not signed in";
+        const emailElement = document.getElementById("email");
+        if (emailElement) {
+            emailElement.textContent = userEmail || "Not signed in";
+        } else {
+            console.error("Element with id 'email' not found.");
+        }
     }
 });
 

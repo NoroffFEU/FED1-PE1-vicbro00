@@ -8,16 +8,6 @@ if (!token && window.location.pathname.includes("/post/create.html")) {
     window.location.href = "/account/login.html";
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-    const userEmail = localStorage.getItem("email");
-    if (userEmail) {
-        document.getElementById("email").textContent = userEmail;
-    } else {
-        console.log("Email not found in localStorage");
-        document.getElementById("email").textContent = "Not signed in";
-    }
-});
-
 //Validate image URL format
 function isValidImageUrl(url) {
     const validExtensions = [".jpg", ".jpeg", ".png", ".gif", ".webp", ".bmp", ".svg"];
