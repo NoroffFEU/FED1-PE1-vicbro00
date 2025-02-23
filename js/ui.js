@@ -5,34 +5,6 @@ const prevBtn = document.getElementById("slideBtnPrev");
 const nextBtn = document.getElementById("slideBtnNext");
 const dots = document.querySelectorAll(".carousel-dots li");
 
-document.addEventListener("DOMContentLoaded", () => {
-    logUserSession();
-});
-
-const repoName = "FED1-PE1-vicbro00";
-
-//Display what user is logged in
-function logUserSession() {
-    const token = localStorage.getItem("jwt");
-    const email = localStorage.getItem("email");
-
-    const loginStatusElement = document.getElementById("loginStatus");
-
-    if (token && email) {
-        if (loginStatusElement) {
-            loginStatusElement.textContent = `Logged in as: ${email}`;
-        } else {
-            console.warn("Login status element not found.");
-        }
-    } else {
-        if (loginStatusElement) {
-            loginStatusElement.textContent = "User is not logged in.";
-        } else {
-            console.warn("Login status element not found.");
-        }
-    }
-}
-
 //Tracks current slide index
 let currentIndex = 0;
 
