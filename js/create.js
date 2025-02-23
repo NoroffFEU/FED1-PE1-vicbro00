@@ -181,26 +181,3 @@ document.getElementById("confirmBtn").addEventListener("click", async (event) =>
 
     await createPost(title, body, publishDate, mediaUrl);
 });
-
-//Function to edit a post
-async function editPost(postId, updatedPostData) {
-    try {
-        const token = localStorage.getItem("jwt");
-        const response = await fetch(`https://v2.api.noroff.dev/blog/posts/VicB/${postId}`, {
-            method: "PUT",
-            headers: {
-                "Authorization": `Bearer ${token}`,
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(updatedPostData),
-        });
-
-        if (!response.ok) throw new Error("Failed to update post");
-
-        alert("Post updated successfully!");
-        window.location.href = "index.html";
-
-    } catch (error) {
-        console.error("Error updating post:", error);
-    }
-}
