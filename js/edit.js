@@ -1,33 +1,33 @@
 document.addEventListener("DOMContentLoaded", () => {
     console.log("DOMContentLoaded event triggered");
 
-    // Constants and variables
+    //Constants and variables
     let isSubmitting = false;
     const token = localStorage.getItem("jwt");
     const userEmail = localStorage.getItem("email");
     const emailElement = document.getElementById("email");
     const postId = new URLSearchParams(window.location.search).get("id");
 
-    // Check if user is logged in and redirect if necessary
+    //Check if user is logged in and redirect if necessary
     if (!token && window.location.pathname.includes("/post/edit.html")) {
         alert("You must be logged in to access this page.");
         window.location.href = "/account/login.html";
-        return; // Stop further execution if not logged in
+        return;
     }
 
-    // Populate the email span
+    //Populate the email span
     if (emailElement) {
         emailElement.textContent = userEmail || "Not signed in";
     } else {
         console.error("Element with id 'email' not found.");
     }
 
-    // Populate form data if on edit page
+    //Populate form data if on edit page
     if (postId) {
         populateFormWithPostData(postId);
     }
 
-    // Add event listener for confirm button
+    //Add event listener for confirm button
     document.querySelector(".confirm-btn").addEventListener("click", async (event) => {
         event.preventDefault();
 
@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     async function editPost(postId, updatedPostData) {
-        if (isSubmitting) return; // Prevent multiple submissions
+        if (isSubmitting) return;
         isSubmitting = true;
 
         try {
@@ -116,7 +116,7 @@ document.addEventListener("DOMContentLoaded", () => {
             console.error("Error updating post:", error);
             alert(error.message || "Failed to update post. Check console for details.");
         } finally {
-            isSubmitting = false; // Reset the submitting state
+            isSubmitting = false;
         }
     }
 });
