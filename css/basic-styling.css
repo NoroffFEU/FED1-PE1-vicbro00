@@ -149,7 +149,7 @@ footer p {
     font-family: 'work sans';
 }
 
-footer i {
+footer span {
     color: rgb(2, 59, 44);
 }
 
@@ -271,8 +271,8 @@ footer i {
     }
 
     /* Footer styling */
-    footer i {
-        font-size: 4em;
+    footer span {
+        font-size: 2em;
         margin: 0 1rem;
     }
 
