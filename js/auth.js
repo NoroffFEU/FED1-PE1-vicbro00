@@ -90,7 +90,7 @@ function login() {
         localStorage.setItem("jwt", accessToken);
         localStorage.setItem("email", email.toLowerCase());
 
-        // Log the token and other information to the console
+        //Log the token and other information to the console
         console.log("Access Token:", accessToken);
         console.log("User Email:", email);
         console.log("Login Response Data:", data);
