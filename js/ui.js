@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
     logUserSession();
 });
 
-const repoName = window.location.pathname.split('/')[1];
+const repoName = "FED1-PE1-vicbro00";
 
 //Display what user is logged in
 function logUserSession() {
@@ -195,7 +195,7 @@ function signOut() {
         
         if (loadingSpinner) loadingSpinner.style.display = "none";
 
-        window.location.href = "index.html";  
+        window.location.href = "/FED1-PE1-vicbro00/index.html";  
     }, 1000);
 }
 
