@@ -72,7 +72,7 @@ function attachEventListeners() {
     document.querySelectorAll(".readMoreBtn").forEach(button => {
         button.addEventListener("click", event => {
             const postId = event.target.dataset.id;
-            window.location.href = `/post/index.html?id=${postId}`;
+            window.location.href = `/FED1-PE1-vicbro00/post/index.html?id=${postId}`;
         });
     });
 }
@@ -137,7 +137,7 @@ function attachCarouselEventListeners() {
     carouselReadMoreButtons.forEach(button => {
         button.addEventListener("click", event => {
             const postId = event.target.dataset.id;
-            window.location.href = `/post/index.html?id=${postId}`;
+            window.location.href = `/FED1-PE1-vicbro00/post/index.html?id=${postId}`;
         });
     });
 }
