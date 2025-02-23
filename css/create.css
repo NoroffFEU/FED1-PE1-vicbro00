@@ -42,6 +42,13 @@ img {
     align-self: center;
 }
 
+#previewImage {
+    max-width: 10em;
+    display: flex;
+    margin: auto;
+    margin-bottom: 2em;
+}
+
 /*Desktop styling*/
 @media (min-width: 768px) {
     /*Form styles*/
