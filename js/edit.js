@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     const currentPage = window.location.pathname;
 
-    if (currentPage.includes("/post/create.html") || currentPage.includes("/post/edit.html")) {
+    if (currentPage.includes("/FED1-PE1-vicbro00/post/create.html") || currentPage.includes("/FED1-PE1-vicbro00/post/edit.html")) {
         redirectIfNotLoggedIn();
 
         const userEmail = localStorage.getItem("email");
