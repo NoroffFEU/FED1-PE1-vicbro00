@@ -87,61 +87,18 @@ async function createPost(title, body, publishDate, mediaUrl = "") {
     }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-    if (window.location.pathname.includes("/post/create.html")) {
-        const blogImageInput = document.getElementById("blogImage");
-        const previewImage = document.getElementById("previewImage");
-
-        if (blogImageInput && previewImage) {
-            blogImageInput.addEventListener("input", function () {
-                const imageUrl = this.value;
-
-                //Preview image
-                if (imageUrl) {
-                    previewImage.src = imageUrl;
-                    previewImage.style.display = "block";
-                } else {
-                    previewImage.style.display = "none";
-                }
-            });
-        } else {
-            console.error("blogImage or previewImage element not found in the DOM.");
-        }
-    }
-});
-
 //Checks if this is the create page
-document.addEventListener("DOMContentLoaded", () => {
-    if (window.location.pathname.includes("/post/create.html")) {
-        const blogImageInput = document.getElementById("blogImage");
+if (window.location.pathname.includes("/post/create.html")) {
+    document.getElementById("blogImage").addEventListener("input", function () {
+        const imageUrl = this.value;
         const previewImage = document.getElementById("previewImage");
 
-        if (blogImageInput && previewImage) {
-            blogImageInput.addEventListener("input", function () {
-                const imageUrl = this.value;
-
-                //Preview image
-                if (imageUrl) {
-                    previewImage.src = imageUrl;
-                    previewImage.style.display = "block";
-                } else {
-                    previewImage.style.display = "none";
-                }
-            });
+        //Previews image
+        if (imageUrl) {
+            previewImage.src = imageUrl;
+            previewImage.style.display = "block";
         } else {
-            console.error("blogImage or previewImage element not found in the DOM.");
+            previewImage.style.display = "none";
         }
-    }
-});
-
-blogImageInput.addEventListener("input", function () {
-    const imageUrl = this.value;
-    console.log(imageUrl);
-
-    if (imageUrl) {
-        previewImage.src = imageUrl;
-        previewImage.style.display = "block";
-    } else {
-        previewImage.style.display = "none";
-    }
-});
+    });
+}
