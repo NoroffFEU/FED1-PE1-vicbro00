@@ -1,16 +1,20 @@
 let isSubmitting = false;
-let hasCheckedLogin = false;
 
-// Check if user is logged in
+//Check if user is logged in
 const token = localStorage.getItem("jwt");
 
-// Validate image URL format
+if (!token && window.location.pathname.includes("/post/create.html")) {
+    alert("You must be logged in to access this page.");
+    window.location.href = "/account/login.html";
+}
+
+//Validate image URL format
 function isValidImageUrl(url) {
     const validExtensions = [".jpg", ".jpeg", ".png", ".gif", ".webp", ".bmp", ".svg"];
     return validExtensions.some(ext => url.toLowerCase().endsWith(ext));
 }
 
-// Check if the image exists
+//Check if the image exists
 async function checkImageExists(url) {
     return new Promise((resolve) => {
         const img = new Image();
@@ -20,7 +24,7 @@ async function checkImageExists(url) {
     });
 }
 
-// Validate image URL
+//Validate image URL
 async function validateImageUrl(url) {
     if (!isValidImageUrl(url)) {
         alert("Invalid image URL: URL must end with a valid image file extension (e.g., .jpg, .png).");
@@ -36,13 +40,13 @@ async function validateImageUrl(url) {
     return true;
 }
 
-// Creates or updates a post
+//Creates or updates a post
 async function createPost(title, body, publishDate, mediaUrl = "") {
     if (mediaUrl && !(await validateImageUrl(mediaUrl))) {
         isSubmitting = false;
         return;
     }
-
+    
     const username = localStorage.getItem("email");
     const postId = new URLSearchParams(window.location.search).get("id");
     const url = postId
@@ -59,6 +63,7 @@ async function createPost(title, body, publishDate, mediaUrl = "") {
     };
 
     try {
+        //Sends a request to create or update post
         const response = await fetch(url, {
             method,
             headers: {
@@ -82,7 +87,36 @@ async function createPost(title, body, publishDate, mediaUrl = "") {
     }
 }
 
-// Fetches post by its ID
+//Checks if this is the create page
+if (window.location.pathname.includes("/post/create.html")) {
+    document.getElementById("blogImage").addEventListener("input", function () {
+        const imageUrl = this.value;
+        const previewImage = document.getElementById("previewImage");
+
+        //Previews image
+        if (imageUrl) {
+            previewImage.src = imageUrl;
+            previewImage.style.display = "block";
+        } else {
+            previewImage.style.display = "none";
+        }
+    });
+} page: document.addEventListener("DOMContentLoaded", () => {
+    const currentPage = window.location.pathname;
+
+    if (currentPage.includes("/post/create.html") || currentPage.includes("/post/edit.html")) {
+        redirectIfNotLoggedIn();
+
+        const userEmail = localStorage.getItem("email");
+        document.getElementById("email").textContent = userEmail || "Not signed in";
+    }
+});
+
+//Post ID
+const urlParams = new URLSearchParams(window.location.search);
+const postId = urlParams.get("id");
+
+//Fetches post by its ID
 async function fetchPostById(postId) {
     try {
         const token = localStorage.getItem("jwt");
@@ -101,7 +135,7 @@ async function fetchPostById(postId) {
     }
 }
 
-// Fills the forms with the post ID data
+//Fills the forms with the post ID data
 async function populateFormWithPostData(postId) {
     if (!postId) {
         console.warn("No post ID provided.");
@@ -111,6 +145,7 @@ async function populateFormWithPostData(postId) {
     const post = await fetchPostById(postId);
 
     if (post) {
+
         document.getElementById("blogTitle").value = post.title;
         document.getElementById("blogContent").value = post.body;
         document.getElementById("publishDate").value = post.published?.split("T")[0] || new Date().toISOString().split("T")[0];
@@ -125,23 +160,28 @@ async function populateFormWithPostData(postId) {
     }
 }
 
-// Function to check if user is logged in
-function isLoggedIn() {
-    return localStorage.getItem("jwt") !== null;
-}
+//Adds event listener when document is loaded
+document.addEventListener("DOMContentLoaded", () => {
+    populateFormWithPostData(postId);
+});
 
-// Redirect if not logged in
-function redirectIfNotLoggedIn() {
-    if (hasCheckedLogin) return;
-    hasCheckedLogin = true;
+//Event listener for button
+document.getElementById("confirmBtn").addEventListener("click", async (event) => {
+    event.preventDefault();
 
-    if (!isLoggedIn()) {
-        alert("You must be logged in to access this page.");
-        window.location.href = "/account/login.html";
+    const title = document.getElementById("blogTitle").value;
+    const body = document.getElementById("blogContent").value;
+    const publishDate = document.getElementById("publishDate").value;
+    const mediaUrl = document.getElementById("blogImage").value;
+
+    if (!title || !body || !publishDate) {
+        alert("Please fill in all required fields.");
+        return;
     }
-}
 
-// Event listener for DOMContentLoaded
+    await createPost(title, body, publishDate, mediaUrl);
+});
+
 document.addEventListener("DOMContentLoaded", () => {
     console.log("DOMContentLoaded event triggered");
     const currentPage = window.location.pathname;
@@ -156,39 +196,5 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
             console.error("Element with id 'email' not found.");
         }
-
-        const urlParams = new URLSearchParams(window.location.search);
-        const postId = urlParams.get("id");
-        populateFormWithPostData(postId);
     }
-
-    if (currentPage.includes("/post/create.html")) {
-        document.getElementById("blogImage").addEventListener("input", function () {
-            const imageUrl = this.value;
-            const previewImage = document.getElementById("previewImage");
-
-            if (imageUrl) {
-                previewImage.src = imageUrl;
-                previewImage.style.display = "block";
-            } else {
-                previewImage.style.display = "none";
-            }
-        });
-    }
-
-    document.getElementById("confirmBtn").addEventListener("click", async (event) => {
-        event.preventDefault();
-
-        const title = document.getElementById("blogTitle").value;
-        const body = document.getElementById("blogContent").value;
-        const publishDate = document.getElementById("publishDate").value;
-        const mediaUrl = document.getElementById("blogImage").value;
-
-        if (!title || !body || !publishDate) {
-            alert("Please fill in all required fields.");
-            return;
-        }
-
-        await createPost(title, body, publishDate, mediaUrl);
-    });
 });
