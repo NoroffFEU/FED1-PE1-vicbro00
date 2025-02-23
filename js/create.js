@@ -133,3 +133,15 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 });
+
+blogImageInput.addEventListener("input", function () {
+    const imageUrl = this.value;
+    console.log(imageUrl);
+
+    if (imageUrl) {
+        previewImage.src = imageUrl;
+        previewImage.style.display = "block";
+    } else {
+        previewImage.style.display = "none";
+    }
+});
