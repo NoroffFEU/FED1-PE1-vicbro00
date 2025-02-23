@@ -58,7 +58,7 @@ function registerUser() {
     }))
     .then(() => {
         alert("Registration successful! You can now log in.");
-        window.location.href = "account/login.html";
+        window.location.href = "/FED1-PE1-vicbro00/account/login.html";
     })
     .catch(error => {
         console.error("Error during registration:", error);
@@ -96,7 +96,7 @@ function login() {
         console.log("Login Response Data:", data);
 
         alert("You are now signed in!");
-        window.location.href = "index.html";
+        window.location.href = "/FED1-PE1-vicbro00/index.html";
     })
     .catch(error => {
         console.error("Error during login:", error);
