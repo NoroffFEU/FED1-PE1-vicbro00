@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="This is the login page for HotView Labs. Here you can log in to your personal account to view all your blog posts or edit them.">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="robots" content="index, follow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Roboto+Slab:wght@100;300;400;500;700;900&family=Quicksand:wght@300..700&family=Work+Sans:wght@100..900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/7d33f7d3ef.js" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/x-icon" href="../images/favicon-32x32.png">
+    <link rel="stylesheet" href="../css/basic-styling.css">
+    <link rel="stylesheet" href="../css/login.css">
+    <title>HotView Labs Account Login Page</title>
+</head>
+
+<body>
+    <div class="loading-spinner" id="loadingSpinner">
+        <div class="spinner"></div>
+    </div>
+    <header>
+        <nav class="desktop-nav-logged-in" id="desktopLoggedIn">
+            <ul>
+                <li><button class="sign-out-btn">Sign out</button></li>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../post/edit.html">Edit posts</a></li>
+                <li><a href="../post/create.html">Create Posts</a></li>
+            </ul>
+        </nav>
+        <nav class="desktop-nav-logged-out" id="desktopLoggedOut">
+            <ul>
+                <li><button onclick="window.location.href='/Exam-project-1/account/login.html';">Sign in</button></li>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../account/register.html">Register</a></li>
+            </ul>
+        </nav>
+        <span class="fa-solid fa-bars" id="hamburgerIcon" aria-hidden="true"></span>
+        <nav class="hamb-menu-logged-out" id="hambMenuLoggedOut">
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../account/register.html">Register</a></li>
+            </ul>
+            <button onclick="window.location.href='/Exam-project-1/account/login.html';">Sign in</button>
+        </nav>
+        <nav class="hamb-menu-logged-in hidden" id="hambMenuLoggedIn">
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../post/edit.html">Edit posts</a></li>
+                <li><a href="../post/create.html">Create posts</a></li>
+            </ul>
+            <button class="sign-out-btn">Sign out</button>
+        </nav>
+        <h1 id="title"><span class="blue">Hot</span><span class="black">View</span> <span class="blue">Labs</span></h1>
+        <img src="../images/Logo.png" alt="HotView Labs logo, with a blue chatbox and a cloud in the background.">
+    </header>
+
+    <main>
+        <h2>Log into your profile here!</h2>
+        <form action="https://vicbro00.github.io/Exam-project-1/index.html" class="loginForm" id="loginForm">
+            <div class="input-group">
+                <div>
+                    <label for="username" class="username">Username:</label>
+                    <input type="text" id="username" placeholder="Username..." class="input">
+                </div>
+                <div>
+                    <label for="email" class="label">Email:</label>
+                    <input type="email" id="email" placeholder="Email..." class="input">
+                </div>
+                <div>
+                    <label for="password" class="label">Password:</label>
+                    <input type="password" id="password" class="input">
+                </div>
+                <span class="error-message"></span>
+            </div>
+            <button onsubmit="return login()" id="signInBtn" class="sign-in-btn" type="submit">Sign in</button>
+        </form>
+        <p id="responseMessage"></p>
+    </main>
+
+    <footer>
+        <div class="footer-top">
+            <button onclick="window.location.href='../account/register.html';" class="sign-up-btn">Sign up here!</button>
+            <img src="../images/Logo.png" alt="HotView Labs logo, with a blue chatbox and a cloud in the background.">
+        </div>
+        <div class="footer-bar"></div>
+        <div class="footer-bot">
+            <p>&copy;HotViewLabs</p>
+            <div>
+                <span class="fa-brands fa-square-instagram" aria-hidden="true"></span>
+                <span class="fa-brands fa-youtube" aria-hidden="true"></span>
+                <span class="fa-brands fa-square-github" aria-hidden="true"></span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/display.js" defer></script>
+    <script src="../js/auth.js" defer></script>
+    <script src="../js/api.js" defer></script>
+    <script src="../js/ui.js" defer></script>
+</body>
+</html>

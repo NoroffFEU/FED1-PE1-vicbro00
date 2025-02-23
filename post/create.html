@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- 	<meta charset="UTF-8">
- 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="This is the register page for HotView Labs. Here you can register your own account to start posting blog posts about technology and other tech products.">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="This is the create page for HotView Labs. Here you can create your own blog posts and post them to the website for other people to view. You can also choose which existing posts to edit.">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="robots" content="index, follow">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,16 +11,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Roboto+Slab:wght@100;300;400;500;700;900&family=Quicksand:wght@300..700&family=Work+Sans:wght@100..900&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/7d33f7d3ef.js" crossorigin="anonymous"></script>
     <link rel="icon" type="image/x-icon" href="../images/favicon-32x32.png">
-    <link rel="stylesheet" href="../css/register.css">
+    <link rel="stylesheet" href="../css/create.css">
     <link rel="stylesheet" href="../css/basic-styling.css">
-	<title>HotView Labs Account Register Page</title>
+    <title>HotView Labs Blog Create Post Page</title>
 </head>
 
 <body>
     <div class="loading-spinner" id="loadingSpinner">
         <div class="spinner"></div>
     </div>
-	<header>
+    <header>
         <nav class="desktop-nav-logged-in" id="desktopLoggedIn">
             <ul>
                 <li><button class="sign-out-btn">Sign out</button></li>
@@ -31,7 +31,7 @@
         </nav>
         <nav class="desktop-nav-logged-out" id="desktopLoggedOut">
             <ul>
-                <li><button onclick="window.location.href='../account/login.html';">Sign in</button></li>
+                <li><button onclick="window.location.href='account/login.html';">Sign in</button></li>
                 <li><a href="../index.html">Home</a></li>
                 <li><a href="../account/register.html">Register</a></li>
             </ul>
@@ -42,7 +42,7 @@
                 <li><a href="../index.html">Home</a></li>
                 <li><a href="../account/register.html">Register</a></li>
             </ul>
-            <button onclick="window.location.href='../account/login.html';">Sign in</button>
+            <button onclick="window.location.href='account/login.html';">Sign in</button>
         </nav>
         <nav class="hamb-menu-logged-in hidden" id="hambMenuLoggedIn">
             <ul>
@@ -57,42 +57,23 @@
         <img src="../images/Logo.png" alt="HotView Labs logo, with a blue chatbox and a cloud in the background.">
     </header>
 
-	<main>
-		<h2>Sign up here!</h2>
-		<form class="sign-up-form" id="registerForm">
-            <div class="input-group">
-                <div>
-                    <label for="name">Username:</label>
-                    <input type="text" id="name" required>
-                </div>
-                <div>
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" required>
-                </div>
-                <div>
-                    <label for="password">Password:</label>
-                    <input type="password" id="password" required>
-                </div>
-                <div>
-                    <label for="bio"></label>
-                    <input type="text" name="bio" id="bio" placeholder="bio(optional)">
-                </div>
-                <div>
-                    <label for="bannerUrl"></label>
-                    <input type="text" name="bannerUrl" id="bannerUrl" placeholder="Banner URL (optional)"/>
-                </div>
-                <div>
-                    <label for="bannerAlt"></label>
-                    <input type="text" name="bannerAlt" id="bannerAlt" placeholder="Banner Alt Text (optional)"/>
-                </div>
-            </div>
-            <button type="submit" class="sign-up-button" id="signUpBtn">Sign up</button>
-            <p id="message"></p>
+    <main>
+        <h2>Signed in as: <span id="email"></span></h2>
+        <form class="edit-form" id="createPostForm">
+            <label for="blogTitle">Blog title:</label>
+            <input type="text" id="blogTitle">
+            <label for="blogContent">Blog content:</label>
+            <textarea id="blogContent" rows="5" required></textarea>
+            <label for="publishDate">Publish Date:</label>
+            <input type="date" id="publishDate" required>
+            <label for="blogImage">Blog image:</label>
+            <input type="url" id="blogImage" placeholder="Enter image URL">
+            <img src="https://i.postimg.cc/fLvqrCb0/Rectangle-13.png" id="previewImage" alt="Image preview">
         </form>
-        
-	</main>
+        <button class="confirm-btn" id="confirmBtn" type="submit">Confirm edits</button>
+    </main>
 
-	<footer>
+    <footer>
         <div class="footer-top">
             <button onclick="window.location.href='../account/register.html';" class="sign-up-btn">Sign up here!</button>
             <img src="../images/Logo.png" alt="HotView Labs logo, with a blue chatbox and a cloud in the background.">
@@ -109,9 +90,10 @@
     </footer>
 
     <script src="../js/display.js" defer></script>
-    <script src="../js/auth.js" defer></script>
+    <script src="../js/edit.js" defer></script>
     <script src="../js/api.js" defer></script>
-    <script src="../js/ui.js" defer></script>
+    <script src="../js/auth.js" defer></script>
     <script src="../js/create.js" defer></script>
+    <script src="../js/ui.js" defer></script>
 </body>
 </html>

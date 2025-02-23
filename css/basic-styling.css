@@ -1,0 +1,278 @@
+/*Global styles*/
+html {
+    font-family: 'roboto slab', 'quicksand', 'work sans';
+    background-color: rgb(227, 254, 247);
+}
+
+body {
+    padding: 6em 0 0 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+h1 {
+    font-family: 'roboto slab', 'quicksand', 'work sans';
+    text-align: center;
+}
+
+h2 {
+    font-family: 'quicksand', 'work sans', 'roboto slab';
+    text-align: center;
+    margin: 1em 0;
+}
+
+h3 {
+    font-family: 'quicksand', 'work sans', 'roboto slab';
+    text-align: center;
+    font-weight: 500;
+}
+
+p {
+    font-family: 'quicksand', 'work sans', 'roboto slab';
+}
+
+a {
+    text-decoration: none;
+}
+
+.black {
+    color: black;
+}
+
+.blue {
+    color: rgb(0, 60, 67);
+}
+
+/*Header styling*/
+header {
+    background-color: rgb(119, 176, 170);
+    font-family: 'quicksand', 'work sans', 'roboto slab';
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 1em;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+header img {
+    max-width: 4em;
+    max-height: 4em;
+}
+
+header h1 {
+    font-weight: 800;
+    font-size: 1.5em;
+}
+
+header li:hover {
+    text-decoration: underline;
+    text-decoration-color: white;
+}
+
+.desktop-nav-logged-in,
+.desktop-nav-logged-out {
+    display: none;
+}
+
+.hamb-menu-logged-in,
+.hamb-menu-logged-out {
+    display: none;
+    background-color: rgb(119, 176, 170);
+    padding: 1em;
+    top: 1em;
+    left: 4em;
+    position: absolute;
+    z-index: 1000;
+}
+
+.hamb-menu-logged-in ul,
+.hamb-menu-logged-out ul {
+    list-style: none;
+    padding: 1em;
+}
+
+.hamb-menu-logged-in a,
+.hamb-menu-logged-out a,
+.hamb-menu-logged-out li {
+    text-decoration: none;
+    color: white;
+}
+
+/*Buttons styling*/
+button {
+    background-color: rgb(2, 59, 44);
+    color: white;
+    font-family: 'quicksand';
+    padding: 0.25em 2em;
+    border: none;
+    border-radius: 25px;
+}
+
+button:hover {
+    background-color: rgb(0, 103, 75);
+    cursor: pointer;
+}
+
+/*Form and input styles*/
+#searchInput {
+    padding: 0.25em 1em;
+    border: none;
+    border-radius: 25px;
+}
+
+#searchInput:hover {
+    cursor: pointer;
+}
+
+/*Footer styling*/
+footer {
+    background-color: rgb(119, 176, 170);
+}
+
+footer img {
+    max-width: 4em;
+    max-height: 4em;
+}
+
+footer p {
+    color: white;
+    font-family: 'work sans';
+}
+
+footer i {
+    color: rgb(2, 59, 44);
+}
+
+.footer-bar {
+    background-color: rgb(2, 59, 44);
+    height: 2px;
+    margin: 2em 0;
+}
+
+.footer-top,
+.footer-bot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+}
+
+/*Loading spinner styling */
+.loading-spinner {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.spinner {
+    border: 4px solid rgb(2, 59, 44);
+    border-top: 4px solid rgb(255, 255, 255);
+    border-radius: 50%;
+    width: 2em;
+    height: 2em;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/*Desktop styling*/
+@media (min-width: 768px) {
+    /*Global styles*/
+    html {
+        margin: 0 10em;
+    }
+
+    header h1 {
+        font-size: 2em;
+    }
+
+    h1,
+    h2,
+    h3 {
+        font-size: 2em;
+    }
+
+    p {
+        font-size: 1.5em;
+    }
+
+    /* Header styling */
+    header {
+        padding: 1em;
+        display: flex;
+        justify-content: space-evenly;
+    }
+    
+    header button {
+        background-color: rgb(2, 59, 44);
+        color: white;
+        font-family: 'quicksand';
+        padding: 0.25em 2em;
+        border: none;
+        border-radius: 25px;
+    }
+
+    header img {
+        min-width: 8em;
+    }
+
+    header ul {
+        font-size: 1.5em;
+    }
+
+    #hamburgerIcon {
+        display: none;
+    }
+
+    .desktop-nav-logged-in,
+    .desktop-nav-logged-out {
+        display: block;
+    }
+
+    .desktop-nav-logged-in ul,
+    .desktop-nav-logged-out ul {
+        display: flex;
+        list-style: none;
+        gap: 1em;
+        padding: 0;
+        margin: 0;
+        align-items: center;
+    }
+
+    .desktop-nav-logged-in a,
+    .desktop-nav-logged-out a {
+        text-decoration: none;
+        color: white;
+    }
+    
+    /* Button styling */
+    button {
+        padding: 1em 4em;
+        font-size: 1em;
+    }
+
+    /* Footer styling */
+    footer i {
+        font-size: 4em;
+        margin: 0 1rem;
+    }
+
+    footer img {
+        min-width: 8em;
+    }
+}

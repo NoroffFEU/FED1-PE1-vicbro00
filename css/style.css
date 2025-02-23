@@ -1,0 +1,180 @@
+/*Buttons styling*/
+.newest-btn {
+    background-color: white;
+    color: black;
+    max-width: 6em;
+    padding: 0.25em 0.25em;
+    border-radius: 5px;
+}
+
+.newest-btn i {
+    color: rgb(2, 59, 44);
+}
+
+/*Sort bar styling*/
+#searchHidden {
+    border-radius: 5px;
+    border-style: none;
+    width: 6em;
+    color: rgb(0, 0, 0, 75%);
+}
+
+#searchLabel {
+    display: none;
+}
+
+.sort-bar {
+    background-color: rgb(119, 176, 170);
+    padding: 1em 0;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto;
+    justify-content: space-evenly;
+}
+
+.flip-vertical {
+    transform: rotate(180deg);
+    display: inline-block;
+}
+
+/*Carousel styling*/
+#carouselDots {
+    margin: 0;
+    padding: 0;
+}
+
+.sortingBtn.flipped i {
+    transform: rotate(180deg);
+}
+
+.carousel-dots li {
+    display: inline-block;
+    width: 0.5em;
+    height: 0.5em;
+    border-radius: 50%;
+    border-style: solid;
+    border-color: rgb(2, 59, 44);
+    border-width: 1px;
+    background-color: white;
+    margin: 1em;
+}
+
+.slide img {
+    max-width: 8em;
+    display: block;
+}
+
+.slide img:hover {
+    cursor: pointer;
+}
+
+.slide button {
+    display: block;
+}
+
+.carousel-container {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    overflow: scroll;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    gap: 1%;
+}
+
+.slide {
+    width: 100%;
+    height: 100%;
+    flex: 1 0 100%;
+    border: solid rgb(2, 59, 44);
+    border-width: 2px;
+    box-sizing: border-box;
+    padding: 4em 2em;
+    font-family: 'quicksand', 'verdana';
+    font-weight: 500;
+    margin: 2em 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+    text-align: center;
+    flex-direction: column;
+}
+
+.carousel-dots .active-dot {
+    background-color: rgb(2, 59, 44);
+}
+
+.slide-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/*Blog grid styling*/
+#blogGrid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+}
+
+.post-item img {
+    max-width: 8em;
+}
+
+.post-item img:hover {
+    cursor: pointer;
+}
+
+.post-item p {
+    display: none;
+}
+
+.post-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+    margin: 2em 0;
+    background-color: white;
+    padding: 2em 0;
+    width: 80%;
+}
+
+/*Desktop styling*/
+@media (min-width: 768px) {
+    /*Blog grid styling*/
+    #blogGrid {
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-template-rows: auto;
+        justify-content: space-around;
+        align-items: start;
+    }
+    
+    .slide img {
+        min-width: 20em;
+    }
+
+    .slide button {
+        margin-bottom: 1em;
+    }
+
+    .post-item img {
+        min-width: 14em;
+    }
+
+    .post p {
+        display: none;
+    }
+
+    .slide {
+        padding: 0;
+    }
+
+    .post-item {
+        width: 80%;
+        padding: 2em 1em;
+    }
+}

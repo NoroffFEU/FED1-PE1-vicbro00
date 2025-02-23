@@ -1,0 +1,118 @@
+/*Global styles*/
+h1 {
+    font-size: 1.5em;
+    font-weight: 500;
+    text-align: center;
+}
+
+h3 {
+    font-size: 1em;
+    font-weight: 400;
+}
+
+.hidden {
+    display: none;
+}
+
+/*Form styles*/
+label {
+    font-family: 'quicksand', 'work sans', 'roboto slab';
+    font-size: 1.5em;
+}
+
+.edit-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    margin: 2em;
+}
+
+.edit-form input,
+.edit-form textarea {
+    border-color: rgb(2, 59, 44);
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 25px;
+    resize: none;
+}
+
+/*Blog grid styles*/
+.post-item p {
+    display: none;
+}
+
+.post-item img {
+    max-width: 10em;
+}
+
+.blog-grid {
+    display: grid;
+    gap: 2em;
+}
+
+.post-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+}
+
+/*Buttons*/
+#createPostBtn {
+    margin: auto;
+    display: flex;
+    margin-bottom: 1em;
+}
+
+.post-item button {
+    margin: 1em 0;
+}
+
+.confirm-btn,
+#confirmBtn {
+    margin: auto;
+    display: flex;
+    margin-bottom: 1em;
+}
+
+.deleteBtn {
+    background-color: rgb(152, 0, 0);
+    margin-bottom: 1em;
+}
+
+.deleteBtn:hover {
+    background-color: rgb(80, 0, 0);
+}
+
+/*Image styling*/
+#previewImage {
+    max-width: 10em;
+    display: flex;
+    margin: auto;
+    margin-bottom: 2em;
+}
+
+/*Desktop styling*/
+@media (min-width: 768px) {
+    /*Form styles*/
+    input,
+    textarea {
+        min-height: 2em;
+        resize: none;
+        font-size: 2em;
+        font-family: 'quicksand', 'work sans', 'roboto slab';
+    }
+
+    input {
+        max-width: 50%
+    }
+    
+    #createPostForm {
+        margin: 0;
+    }
+    
+    /*Blog grid styles*/
+    .post-item img {
+        min-width: 20em;
+    }
+}

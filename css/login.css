@@ -1,0 +1,43 @@
+/*Form styles*/
+input {
+    border-color: rgb(2, 59, 44);
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 25px;
+    font-family: 'quicksand', 'work sans', 'roboto slab';
+}
+
+label {
+    font-family: 'quicksand', 'work sans', 'roboto slab';
+    margin: 0 2em;
+}
+
+#loginForm div {
+    margin: 1em 0;
+}
+    
+.input-group div {
+    display: flex;
+    justify-content: space-between;
+}
+
+#loginForm button {
+    display: flex;
+    margin: auto;
+}
+
+.input-group {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: center;
+}
+
+/*Desktop styling*/
+@media (min-width: 768px) {
+    /*Form styles*/
+    input,
+    label {
+        font-size: 2em;
+    }
+}
