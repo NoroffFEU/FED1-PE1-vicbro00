@@ -95,7 +95,7 @@ async function editPost(postId, updatedPostData) {
         if (!response.ok) throw new Error("Failed to update post");
 
         alert("Post updated successfully!");
-        window.location.href = "/index.html";
+        window.location.href = "index.html";
 
     } catch (error) {
         console.error("Error updating post:", error);

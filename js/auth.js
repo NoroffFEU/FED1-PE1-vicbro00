@@ -96,7 +96,7 @@ function login() {
         console.log("Login Response Data:", data);
 
         alert("You are now signed in!");
-        window.location.href = "/index.html";
+        window.location.href = "index.html";
     })
     .catch(error => {
         console.error("Error during login:", error);

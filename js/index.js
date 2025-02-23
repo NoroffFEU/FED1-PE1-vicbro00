@@ -50,7 +50,7 @@ function displayPosts(posts) {
         let postContent = `
             <h3>${post.title}</h3>
             ${post.media?.url ? `
-                <a href="post/index.html?id=${post.id}">
+                <a href="/post/index.html?id=${post.id}">
                     <img src="${post.media.url}" alt="${post.title || 'Blog post image'}">
                 </a>
             ` : ""}
@@ -115,7 +115,7 @@ function showSlide(index) {
     carouselContainer.innerHTML = `
         <div class="slide">
             <h3>${post.title}</h3>
-            <a href="post/index.html?id=${post.id}">
+            <a href="/post/index.html?id=${post.id}">
                 ${post.media?.url ? `<img src="${post.media.url}" alt="${post.title}">` : ""}
             </a>
             <p class="post-date">Published on: ${new Date(post.created).toLocaleDateString("en-GB", {
