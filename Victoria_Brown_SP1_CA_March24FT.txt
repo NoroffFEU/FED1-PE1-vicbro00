@@ -1,0 +1,17 @@
+Project Exam 1
+
+Link to GitHub repository:
+•	https://github.com/vicbro00/Exam-project-1
+Link to classroom GitHub repository:
+•	https://github.com/NoroffFEU/FED1-PE1-vicbro00
+Link to deployed web application (Netlify):
+•	https://hotviewlabs-vic.netlify.app/
+Link to Figma Style guide:
+https://www.figma.com/design/AIiOSVcIJmLBvbD3Yc32an/Exam-project-1?m=auto&t=mvmRVvJIouRfKsSF-6
+Link to the public project planning board:
+•	https://github.com/orgs/NoroffFEU/projects/260
+Login details:
+•	Username: VicB
+•	Email: vicbro02458@stud.noroff.no
+•	Password: T33NageR1100
+•	Use all to log in.
