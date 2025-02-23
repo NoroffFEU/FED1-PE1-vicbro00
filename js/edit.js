@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+    console.log("DOMContentLoaded event triggered");
 
     //Constants and variables
     let isSubmitting = false;
@@ -8,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const postId = new URLSearchParams(window.location.search).get("id");
 
     //Check if user is logged in and redirect if necessary
-    if (!token && (window.location.pathname.includes("/post/edit.html") || window.location.pathname.includes("/post/create.html"))) {
+    if (!token && window.location.pathname.includes("/post/edit.html")) {
         alert("You must be logged in to access this page.");
         window.location.href = "/account/login.html";
         return;
@@ -26,8 +27,8 @@ document.addEventListener("DOMContentLoaded", () => {
         populateFormWithPostData(postId);
     }
 
-    //Add event listener for edit button
-    document.getElementById("editBtn").addEventListener("click", async (event) => {
+    //Add event listener for confirm button
+    document.querySelector(".confirm-btn").addEventListener("click", async (event) => {
         event.preventDefault();
 
         const title = document.getElementById("blogTitle").value;
@@ -48,33 +49,6 @@ document.addEventListener("DOMContentLoaded", () => {
         };
 
         await editPost(postId, updatedPostData);
-    });
-
-    //Add event listener for sign-out button
-    document.getElementById("signOutBtn").addEventListener("click", () => {
-        localStorage.removeItem("jwt");
-        localStorage.removeItem("email");
-        window.location.href = "/account/login.html";
-    });
-
-    //Add event listener for mobile sign-out button
-    document.getElementById("signOutBtnMobile").addEventListener("click", () => {
-        localStorage.removeItem("jwt");
-        localStorage.removeItem("email");
-        window.location.href = "/account/login.html";
-    });
-
-    //Preview image logic
-    document.getElementById("blogImage").addEventListener("input", function () {
-        const imageUrl = this.value;
-        const previewImage = document.getElementById("previewImage");
-
-        if (imageUrl) {
-            previewImage.src = imageUrl;
-            previewImage.style.display = "block";
-        } else {
-            previewImage.style.display = "none";
-        }
     });
 
     //Helper functions
@@ -137,7 +111,8 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             alert("Post updated successfully!");
-            window.location.href = "/index.html";
+            console.log("Redirecting to post view page:", `post.html?id=${postId}`);
+            window.location.href = `post.html?id=${postId}`;
         } catch (error) {
             console.error("Error updating post:", error);
             alert(error.message || "Failed to update post. Check console for details.");
