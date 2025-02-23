@@ -101,7 +101,7 @@ if (window.location.pathname.includes("/post/create.html")) {
             previewImage.style.display = "none";
         }
     });
-} why doesnt the image preview work on the create page. it works on the edit page: document.addEventListener("DOMContentLoaded", () => {
+} page: document.addEventListener("DOMContentLoaded", () => {
     const currentPage = window.location.pathname;
 
     if (currentPage.includes("/post/create.html") || currentPage.includes("/post/edit.html")) {
