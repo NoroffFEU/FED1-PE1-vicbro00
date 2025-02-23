@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         //Display the email on the create page
-        const emailDisplayElement = document.getElementById("userEmailDisplay");
+        const emailDisplayElement = document.getElementById("email");
 
         if (emailDisplayElement && userEmail) {
             emailDisplayElement.textContent = userEmail;
