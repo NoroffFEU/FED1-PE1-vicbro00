@@ -133,10 +133,12 @@ function redirectIfNotLoggedIn() {
     }
 }
 
-const userEmail = localStorage.getItem("email");
-const emailElement = document.getElementById("email");
-if (emailElement) {
-    emailElement.textContent = userEmail || "Not signed in";
-} else {
-    console.error("Element with id 'email' not found.");
-}
+document.addEventListener("DOMContentLoaded", () => {
+    const userEmail = localStorage.getItem("email");
+    const emailElement = document.getElementById("email");
+    if (emailElement) {
+        emailElement.textContent = userEmail || "Not signed in";
+    } else {
+        console.error("Element with id 'email' not found.");
+    }
+});
