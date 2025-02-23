@@ -80,7 +80,7 @@ async function createPost(title, body, publishDate, mediaUrl = "") {
 
         const data = await response.json();
         alert(postId ? "Post updated successfully!" : "Post created successfully!");
-        window.location.href = "index.html";
+        window.location.href = "/index.html";
     } catch (error) {
         console.error("There was a problem:", error);
         alert(error.message || "Failed to save post. Check console for details.");
@@ -134,14 +134,32 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-blogImageInput.addEventListener("input", function () {
-    const imageUrl = this.value;
-    console.log(imageUrl);
+// Add event listener for confirm button
+document.addEventListener("DOMContentLoaded", () => {
+    if (window.location.pathname.includes("/post/create.html")) {
+        const confirmBtn = document.querySelector(".confirm-btn");
 
-    if (imageUrl) {
-        previewImage.src = imageUrl;
-        previewImage.style.display = "block";
-    } else {
-        previewImage.style.display = "none";
+        if (confirmBtn) {
+            confirmBtn.addEventListener("click", async (event) => {
+                event.preventDefault();
+
+                // Collect form data
+                const title = document.getElementById("blogTitle").value;
+                const body = document.getElementById("blogContent").value;
+                const publishDate = document.getElementById("publishDate").value;
+                const mediaUrl = document.getElementById("blogImage").value;
+
+                // Validate required fields
+                if (!title || !body || !publishDate) {
+                    alert("Please fill in all required fields.");
+                    return;
+                }
+
+                // Call the createPost function
+                await createPost(title, body, publishDate, mediaUrl);
+            });
+        } else {
+            console.error("Confirm button not found in the DOM.");
+        }
     }
 });

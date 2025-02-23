@@ -33,7 +33,7 @@ async function deletePost(postId) {
         if (!response.ok) throw new Error("Failed to delete post");
 
         alert("Post deleted successfully!");
-        window.location.href = "index.html";
+        window.location.href = "/index.html";
 
     } catch (error) {
         console.error("Error deleting post:", error);

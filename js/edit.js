@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 //Event listener for button
-document.getElementById("confirmBtn").addEventListener("click", async (event) => {
+document.getElementById("editBtn").addEventListener("click", async (event) => {
     event.preventDefault();
 
     const title = document.getElementById("blogTitle").value;
