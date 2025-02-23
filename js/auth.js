@@ -96,7 +96,7 @@ function login() {
         console.log("Login Response Data:", data);
 
         alert("You are now signed in!");
-        window.location.href = "/FED1-PE1-vicbro00/index.html";
+        window.location.href = "/";
     })
     .catch(error => {
         console.error("Error during login:", error);
