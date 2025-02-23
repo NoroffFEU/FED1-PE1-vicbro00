@@ -16,12 +16,20 @@ function logUserSession() {
     const token = localStorage.getItem("jwt");
     const email = localStorage.getItem("email");
 
+    const loginStatusElement = document.getElementById("loginStatus");
+
     if (token && email) {
-        console.log("User is logged in:");
-        console.log("Access Token:", token);
-        console.log("User Email:", email);
+        if (loginStatusElement) {
+            loginStatusElement.textContent = `Logged in as: ${email}`;
+        } else {
+            console.warn("Login status element not found.");
+        }
     } else {
-        console.log("User is not logged in.");
+        if (loginStatusElement) {
+            loginStatusElement.textContent = "User is not logged in.";
+        } else {
+            console.warn("Login status element not found.");
+        }
     }
 }
 

@@ -90,11 +90,6 @@ function login() {
         localStorage.setItem("jwt", accessToken);
         localStorage.setItem("email", email.toLowerCase());
 
-        //Log the token and other information to the console
-        console.log("Access Token:", accessToken);
-        console.log("User Email:", email);
-        console.log("Login Response Data:", data);
-
         alert("You are now signed in!");
         window.location.href = "/FED1-PE1-vicbro00/index.html";
     })
