@@ -33,7 +33,7 @@ async function deletePost(postId) {
         if (!response.ok) throw new Error("Failed to delete post");
 
         alert("Post deleted successfully!");
-        window.location.href = "/index.html";
+        window.location.href = "/FED1-PE1-vicbro00/index.html";
 
     } catch (error) {
         console.error("Error deleting post:", error);
@@ -50,7 +50,7 @@ function attachEventListeners() {
             } else if (button.classList.contains("deleteBtn")) {
                 deletePost(postId);
             } else if (button.classList.contains("readMoreBtn")) {
-                window.location.href = `/post/index.html?id=${postId}`;
+                window.location.href = `/FED1-PE1-vicbro00/post/index.html?id=${postId}`;
             }
         });
     });
@@ -63,7 +63,7 @@ function displayPosts(posts) {
 
     blogGrid.innerHTML = "";
 
-    const isIndexPage = window.location.pathname === "index.html";
+    const isIndexPage = window.location.pathname === "/FED1-PE1-vicbro00/index.html";
     const isPostPage = window.location.pathname.includes("/FED1-PE1-vicbro00/post/index.html");
 
     posts.forEach((post) => { 

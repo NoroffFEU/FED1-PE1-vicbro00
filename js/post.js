@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function () {
         shareBtn.addEventListener("click", function () {
             const postId = getPostIdFromURL();
             if (postId) {
-                const shareableURL = `${window.location.origin}/post/index.html?id=${postId}`;
+                const shareableURL = `/FED1-PE1-vicbro00/post/index.html?id=${postId}`;
 
                 if (navigator.share) {
                     navigator.share({

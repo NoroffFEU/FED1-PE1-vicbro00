@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     //Check if this is the login page
-    if (window.location.pathname.includes("/account/login.html")) {
+    if (window.location.pathname.includes("/FED1-PE1-vicbro00/account/login.html")) {
         document.getElementById("loginForm").addEventListener("submit", (event) => {
             event.preventDefault();
             login();
@@ -27,7 +27,7 @@ function isLoggedIn() {
 function redirectIfNotLoggedIn() {
     if (!isLoggedIn()) {
         alert("You must be logged in to access this page.");
-        window.location.href = "/account/login.html";
+        window.location.href = "/FED1-PE1-vicbro00/account/login.html";
     }
 }
 
