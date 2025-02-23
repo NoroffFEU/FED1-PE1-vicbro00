@@ -140,3 +140,24 @@ async function createPost(title, body, publishDate, mediaUrl = "") {
         alert(error.message || "Failed to save post. Check console for details.");
     }
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+    const currentPage = window.location.pathname;
+
+    if (currentPage.includes("/FED1-PE1-vicbro00/post/create.html") || currentPage.includes("/FED1-PE1-vicbro00/post/edit.html")) {
+        redirectIfNotLoggedIn();
+
+        const userEmail = localStorage.getItem("email");
+        const emailElement = document.getElementById("email");
+
+        if (emailElement) {
+            emailElement.textContent = userEmail || "Not signed in";
+        } else {
+            console.warn("Email element not found on the page.");
+        }
+    }
+
+    if (currentPage.includes("/FED1-PE1-vicbro00/post/edit.html") && postId) {
+        populateFormWithPostData(postId);
+    }
+});
