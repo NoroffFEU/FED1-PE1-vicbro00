@@ -46,7 +46,7 @@ function attachEventListeners() {
         button.addEventListener("click", event => {
             const postId = event.target.dataset.id;
             if (button.classList.contains("editBtn")) {
-                window.location.href = `/post/edit.html?id=${postId}`;
+                window.location.href = `/FED1-PE1-vicbro00/post/edit.html?id=${postId}`;
             } else if (button.classList.contains("deleteBtn")) {
                 deletePost(postId);
             } else if (button.classList.contains("readMoreBtn")) {
@@ -64,7 +64,7 @@ function displayPosts(posts) {
     blogGrid.innerHTML = "";
 
     const isIndexPage = window.location.pathname === "index.html";
-    const isPostPage = window.location.pathname.includes("/post/index.html");
+    const isPostPage = window.location.pathname.includes("/FED1-PE1-vicbro00/post/index.html");
 
     posts.forEach((post) => { 
         const postElement = document.createElement("div");
