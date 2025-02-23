@@ -1,3 +1,5 @@
+const baseURL = getBaseURL();
+
 document.addEventListener("DOMContentLoaded", () => {
     const message = document.getElementById("message");
 
