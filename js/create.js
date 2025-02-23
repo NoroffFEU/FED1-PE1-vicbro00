@@ -87,6 +87,29 @@ async function createPost(title, body, publishDate, mediaUrl = "") {
     }
 }
 
+document.addEventListener("DOMContentLoaded", () => {
+    if (window.location.pathname.includes("/post/create.html")) {
+        const blogImageInput = document.getElementById("blogImage");
+        const previewImage = document.getElementById("previewImage");
+
+        if (blogImageInput && previewImage) {
+            blogImageInput.addEventListener("input", function () {
+                const imageUrl = this.value;
+
+                // Preview image
+                if (imageUrl) {
+                    previewImage.src = imageUrl;
+                    previewImage.style.display = "block";
+                } else {
+                    previewImage.style.display = "none";
+                }
+            });
+        } else {
+            console.error("blogImage or previewImage element not found in the DOM.");
+        }
+    }
+});
+
 //Checks if this is the create page
 if (window.location.pathname.includes("/post/create.html")) {
     document.getElementById("blogImage").addEventListener("input", function () {
