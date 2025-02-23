@@ -58,7 +58,7 @@ function registerUser() {
     }))
     .then(() => {
         alert("Registration successful! You can now log in.");
-        window.location.href = "/account/login.html";
+        window.location.href = "account/login.html";
     })
     .catch(error => {
         console.error("Error during registration:", error);
