@@ -9,6 +9,16 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+    const userEmail = localStorage.getItem("email");
+    if (userEmail) {
+        document.getElementById("email").textContent = userEmail;
+    } else {
+        console.log("Email not found in localStorage");
+        document.getElementById("email").textContent = "Not signed in";
+    }
+});
+
 //Post ID
 const urlParams = new URLSearchParams(window.location.search);
 const postId = urlParams.get("id");
