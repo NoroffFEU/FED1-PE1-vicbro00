@@ -1,4 +1,4 @@
-window.onload = () => {
+document.addEventListener("DOMContentLoaded", () => {
     console.log("DOMContentLoaded event triggered");
 
     //Constants and variables
@@ -119,7 +119,5 @@ window.onload = () => {
         } finally {
             isSubmitting = false;
         }
-    }setTimeout(() => {
-        emailElement.textContent = userEmail || "Not signed in";
-    }, 100);
-};
+    }
+});
