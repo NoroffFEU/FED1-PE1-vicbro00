@@ -56,7 +56,7 @@ function displayPosts(posts) {
             ` : ""}
             <p class="post-date">Published on: ${publishDate}</p>
             <p>${post.body}</p>
-            <button class="readMoreBtn" data-id="${post.id}">Read More</button>
+            <button class="readMoreBtn" data-id="${/FED1-PE1-vicbro00/post.id}">Read More</button>
         `;
 
         postElement.innerHTML = postContent;
@@ -123,7 +123,7 @@ function showSlide(index) {
                 month: "long",
                 year: "numeric",
             })}</p>
-            <button class="readMoreBtn" data-id="${post.id}">Read More</button>
+            <button class="readMoreBtn" data-id="${/FED1-PE1-vicbro00/post.id}">Read More</button>
         </div>
     `;
 

@@ -83,7 +83,7 @@ function displayPosts(posts) {
             <p>${post.body}</p>
         `;
         if (isIndexPage) {
-            postContent += `<button onclick="viewPost('${post.id}')">Read More</button>`;
+            postContent += `<button onclick="viewPost('${/FED1-PE1-vicbro00/post.id}')">Read More</button>`;
         } else if (!isPostPage) {
             postContent += `
                 <button class="editBtn" data-id="${post.id}">Edit</button>
