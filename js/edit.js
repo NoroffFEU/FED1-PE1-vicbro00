@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-    console.log("DOMContentLoaded event triggered");
 
     //Constants and variables
     let isSubmitting = false;
@@ -9,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const postId = new URLSearchParams(window.location.search).get("id");
 
     //Check if user is logged in and redirect if necessary
-    if (!token && window.location.pathname.includes("/post/edit.html")) {
+    if (!token && (window.location.pathname.includes("/post/edit.html") || window.location.pathname.includes("/post/create.html"))) {
         alert("You must be logged in to access this page.");
         window.location.href = "/account/login.html";
         return;
@@ -51,7 +50,34 @@ document.addEventListener("DOMContentLoaded", () => {
         await editPost(postId, updatedPostData);
     });
 
-    // Helper functions
+    //Add event listener for sign-out button
+    document.getElementById("signOutBtn").addEventListener("click", () => {
+        localStorage.removeItem("jwt");
+        localStorage.removeItem("email");
+        window.location.href = "/account/login.html";
+    });
+
+    //Add event listener for mobile sign-out button
+    document.getElementById("signOutBtnMobile").addEventListener("click", () => {
+        localStorage.removeItem("jwt");
+        localStorage.removeItem("email");
+        window.location.href = "/account/login.html";
+    });
+
+    //Preview image logic
+    document.getElementById("blogImage").addEventListener("input", function () {
+        const imageUrl = this.value;
+        const previewImage = document.getElementById("previewImage");
+
+        if (imageUrl) {
+            previewImage.src = imageUrl;
+            previewImage.style.display = "block";
+        } else {
+            previewImage.style.display = "none";
+        }
+    });
+
+    //Helper functions
     async function populateFormWithPostData(postId) {
         if (!postId) {
             console.warn("No post ID provided.");
