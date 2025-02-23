@@ -5,14 +5,7 @@ let filteredPosts = [];
 let carouselPosts = [];
 let currentSlide = 0;
 
-function getBaseURL() {
-    if (window.location.pathname.includes('/FED1-PE1-vicbro00/')) {
-        return '/FED1-PE1-vicbro00/';
-    }
-    return '/';
-}
-
-const baseURL = getBaseURL()
+const baseURL = window.location.origin;
 
 //Fetch posts from the API
 async function fetchPosts() {
