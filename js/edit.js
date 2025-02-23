@@ -27,8 +27,8 @@ document.addEventListener("DOMContentLoaded", () => {
         populateFormWithPostData(postId);
     }
 
-    //Add event listener for confirm button
-    document.querySelector(".confirm-btn").addEventListener("click", async (event) => {
+    //Add event listener for edit button
+    document.getElementById("editBtn").addEventListener("click", async (event) => {
         event.preventDefault();
 
         const title = document.getElementById("blogTitle").value;
