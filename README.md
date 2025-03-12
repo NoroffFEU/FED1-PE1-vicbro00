@@ -21,7 +21,7 @@ Clone the repo.
 1. Clone the repo:
 
 ```bash
-git clone git@https://github.com/NoroffFEU/FED1-PE1-vicbro00.git
+git clone https://github.com/NoroffFEU/FED1-PE1-vicbro00.git
 ```
 
 2. Install the dependencies:
@@ -31,6 +31,10 @@ npm install
 ```
 
 ### Running
+
+Clone or download the project repository to your local machine
+Navigate to the project directory
+Install the project dependencies with npm install
 
 To run the app, run the following commands:
 
