@@ -1,6 +1,6 @@
 # Exam Project 1 (HotView Labs)
 
-Website preview![Exam Project 1 preview](https://github.com/vicbro00/Portfolio-1/blob/main/images/Exam%20Project%201%20preview.png?raw=true)
+Website preview![Exam Project 1 preview](https://i.postimg.cc/435q2S12/Exam-Project-1-preview.png)
 
 A simple overview of the use/purpose of the project.
 
